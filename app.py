@@ -1,8 +1,7 @@
 import os
 import uuid
 import streamlit as st
-import json
-from tools.read_file import ReadFileContents
+
 
 def get_temp_path():
     if 'temp_path' not in st.session_state:
