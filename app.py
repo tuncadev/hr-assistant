@@ -17,3 +17,8 @@ temp_path = get_temp_path()
 with open(os.path.join(temp_path, "first_analysis.txt"), "w") as f:
     f.write(name)
 
+with open(f"{temp_path}/first_analysis.txt", "r") as t:
+    read = t.read()
+
+st.write(read)
+
