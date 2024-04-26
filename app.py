@@ -20,5 +20,5 @@ with open(os.path.join(temp_path, "first_analysis.txt"), "w") as f:
 with open(f"{temp_path}/first_analysis.txt", "r") as t:
     read = t.read()
 
-st.write(read)
+st.write(f"{read} from dir: {temp_path}")
 
