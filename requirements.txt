@@ -2,4 +2,4 @@ streamlit
 python-docx
 chardet
 docx
-pdfminer
+pdfminer.six
