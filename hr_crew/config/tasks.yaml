@@ -1,0 +1,36 @@
+cv_analysis_task:
+  description: >
+    Read this information about the vacancy: {vacancy}.
+    Read this contents of a resume: {resume}.
+    The goal is to analyze the given 'RESUME', and write a 'First analysis report' the information you gathered from the "Resume" in the given format in the "expected_output". 
+    Where you see "Agent analysis' put your answer in percentages, and where you see "why", list the information you found in the resume. 
+    If you can't find it in resume put "No information found" in "why".
+    Each paragraph should be in a new line-break.
+  expected_output: >
+    {expected_output}
+
+hr_manager_task:
+  description: >
+    Read the report "first analysis report". 
+    Analyze the report and where you see less than 100%, generate questions to ask to the candidate in order to gather more information.
+    Only ask questions for areas less than 100%.
+    Output must be in JSSON format.
+    The questions must be sharp, well-understood, brief and mostly only Yes/No questions.
+  expected_output: >
+    A nicely formatted analysis in JSON Format with up to 10 questions to ask to the candidate, to understand weather he/she meets the requirements or not. 
+    The key for JSON format MUST ALWAYS BE "question" (case sensitive!) and the values are the questions.
+    Example:
+      "questions" :
+        "Question 1"
+        "Question 2"
+        "Question 3"
+        "Question 4"
+        "Question 5
+
+hr_manager_report_task:
+  description: >
+    Read the report "first analysis report" and the {answers} to the {questions}. 
+    Analyze the previous reports, read the "answers" the applicant provided and analyze applicant's suitability for the vacancy.
+  expected_output: >
+    A nicely formatted analysis about the applicants resume and his/her suitability for the vacancy. 
+    Explain your conclusions detailed. The report must be professionally written. In a formal format.
