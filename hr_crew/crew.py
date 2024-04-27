@@ -1,26 +1,17 @@
-import yaml
-import os
 from crewai import Agent, Task, Crew, Process
-from crewai.project import CrewBase, agent, task, crew
 from langchain_openai import ChatOpenAI
 
 
 class CVAnalystCrew:
-    agents_config_path = os.path.join(os.path.dirname(__file__), "config/agents.yaml")
-    tasks_config_path = os.path.join(os.path.dirname(__file__), "config/tasks.yaml")
 
     def __init__(self) -> None:
-        with open(self.agents_config_path, 'r') as file:
-            self.agents_config = yaml.safe_load(file)
-        with open(self.tasks_config_path, 'r') as file:
-            self.tasks_config = yaml.safe_load(file)
 
         self.ai_llm = ChatOpenAI(
             model_name="gpt-3.5-turbo",
             temperature=0
         )
 
-    def cv_analyst(self) -> Agent:
+    def cv_analyst(self):
 
         return Agent(
             role='Cv Analyst',
@@ -31,7 +22,7 @@ class CVAnalystCrew:
             llm=self.ai_llm
         )
 
-    def hr_interviewer(self) -> Agent:
+    def hr_interviewer(self):
         return Agent(
             role='Human Resources Manager',
             goal='Read the analysis report of a resume for a certain job vacancy. Create minimum 6 and maximum of 10 questions to ask to the candidate to gather more information (if needed).',
@@ -41,7 +32,7 @@ class CVAnalystCrew:
             llm=self.ai_llm
         )
 
-    def hr_manager(self) -> Agent:
+    def hr_manager(self):
         return Agent(
             role='Senior Human Resources Manager',
             goal="""
@@ -59,8 +50,8 @@ class CVAnalystCrew:
             llm=self.ai_llm
         )
 
-
     def cv_analysis_task(self, fq=None) -> Task:
+
         vacancy = fq["vacancy"]
         resume = fq["resume"]
         expected_output = fq["expected_output"]
@@ -80,7 +71,7 @@ class CVAnalystCrew:
             agent=self.cv_analyst()
         )
 
-    def hr_manager_task(self, first_analysis_report) -> Task:
+    def hr_manager_task(self, first_analysis_report):
         return Task(
             description=f"""
                 Read the report "first analysis report". \n
@@ -104,7 +95,7 @@ class CVAnalystCrew:
             agent=self.hr_interviewer()
         )
 
-    def hr_manager_report_task(self, q=None) -> Task:
+    def hr_manager_report_task(self, q=None):
         first_analysis_report = q["first_analysis_report"]
         vacancy_details = q["vacancy_details"]
         resume = q["resume"]
@@ -127,13 +118,4 @@ class CVAnalystCrew:
                             "What percentage you think he gets considering the suitability of the vacancy, "
                             "vacancy requirements and candidate's resume and answers to additinonal questions",
             agent=self.hr_manager()
-        )
-
-    @crew
-    def crew(self) -> Crew:
-        return Crew(
-            agents=[self.cv_analyst(), self.hr_interviewer(), self.hr_manager()],
-            tasks=[self.cv_analysis_task(), self.hr_manager_task(), self.hr_manager_report_task()],
-            process=Process.sequential,
-            verbose=2
         )
