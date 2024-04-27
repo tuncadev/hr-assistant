@@ -1,0 +1,17 @@
+	Vacancy Name: Lead Generation Manager / SDR Manager
+	Suitability Needed For the Vacancy: 100%
+	Vacancy Requirements:
+		- Experience in B2B sales or Lead Generation or SDR Manager for 2 years
+		- Advanced level of English
+		- Excellent negotiation skills
+		- Excellent written and verbal communication skills
+		- Understanding of enterprise buying processes
+		- Experience with CRM tools like Pipedrive
+		- Experience with sales automation tools like Snov.io, and Sales Navigator.
+	Vacancy Requirements Affect: 70%
+	Would be plus:
+		- Experience in managing complex sales processes that require multiple touches through different channels (LinkedIn, email);
+		- Understanding PM processes;
+		- Our customers are tech and engineering companies of 100+ employees in the US and European markets, so having a sales experience with a similar ICP would be a big plus.
+	Would Be Plus Affect: 30%
+	Vacancy Notes: If some information regarding these requirements is missing in CV, Chatbot should ask a candidate and add this information to a new CV result file.

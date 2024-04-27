@@ -68,6 +68,9 @@ def are_all_fields_filled(responses):
             return False
     return True
 
+
+openai_api = os.getenv("OPENAI_API_KEY")
+os.environ["OPENAI_API_KEY"] = str(openai_api)
 current_step = st.session_state.get('current_step', 1)
 responses = st.session_state.get('responses', {})
 selected_vacancy_value = responses.get("selected_vacancy", "")
