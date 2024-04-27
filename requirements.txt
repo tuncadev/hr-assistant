@@ -5,3 +5,4 @@ docx
 pdfminer.six
 crewai
 PyYAML
+db-sqlite3
