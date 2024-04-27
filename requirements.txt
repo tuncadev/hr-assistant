@@ -6,3 +6,5 @@ pdfminer.six
 crewai
 PyYAML
 db-sqlite3
+streamlit
+pysqlite3-binary
