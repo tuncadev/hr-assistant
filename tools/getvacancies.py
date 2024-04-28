@@ -1,3 +1,5 @@
+import os
+
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
 
@@ -8,7 +10,8 @@ class GetVacanciesData():
         # Define the scope and credentials
         scope = ['https://spreadsheets.google.com/feeds',
                  'https://www.googleapis.com/auth/drive']
-        credentials = ServiceAccountCredentials.from_json_keyfile_name('env/cv-analyzer-421719-f8a9b596b0db.json', scope)
+        credentials_path = os.getenv('GOOGLE_APPLICATION_CREDENTIALS')
+        credentials = ServiceAccountCredentials.from_json_keyfile_name(credentials_path, scope)
 
         # Authorize the client
         client = gspread.authorize(credentials)
