@@ -10,3 +10,4 @@ streamlit
 pysqlite3-binary
 gspread
 oauth2client
+uuid

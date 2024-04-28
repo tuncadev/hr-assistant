@@ -8,7 +8,7 @@ class GetVacanciesData():
         # Define the scope and credentials
         scope = ['https://spreadsheets.google.com/feeds',
                  'https://www.googleapis.com/auth/drive']
-        credentials = ServiceAccountCredentials.from_json_keyfile_name('cv-analyzer-421719-f8a9b596b0db.json', scope)
+        credentials = ServiceAccountCredentials.from_json_keyfile_name('env/cv-analyzer-421719-f8a9b596b0db.json', scope)
 
         # Authorize the client
         client = gspread.authorize(credentials)
