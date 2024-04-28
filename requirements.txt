@@ -8,3 +8,5 @@ PyYAML
 db-sqlite3
 streamlit
 pysqlite3-binary
+gspread
+oauth2client
