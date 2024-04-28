@@ -1,5 +1,4 @@
 import os
-
 import streamlit as st
 from crewai import Agent, Task
 from langchain_openai import ChatOpenAI
