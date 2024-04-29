@@ -1,13 +1,13 @@
 import os
 import uuid
-
 import streamlit as st
 from crewai import Agent, Task
 from langchain_openai import ChatOpenAI
 
-from tools.getvacancies import GetVacanciesData
+from tools.getvacancies import GetVacData
 from tools.read_file import ReadFileContents
 
+# OpenAI Environment
 openai_api = os.getenv("OPENAI_API_KEY")
 os.environ["OPENAI_API_KEY"] = str(openai_api)
 open_llm = ChatOpenAI(
@@ -16,8 +16,6 @@ open_llm = ChatOpenAI(
 )
 
 # App functions start #
-
-
 # Check if all fields are filled
 def are_all_fields_filled(responses):
     for key, value in responses.items():
@@ -26,6 +24,7 @@ def are_all_fields_filled(responses):
     return True
 
 
+# Create a temp folder
 def get_temp_path():
     if 'temp_path' not in st.session_state:
         temp_name = str(uuid.uuid4())
@@ -35,6 +34,7 @@ def get_temp_path():
     return st.session_state['temp_path']
 
 
+# Check uploaded file and retrieve text
 def check_uploaded_file(uploaded_file):
     file_name = uploaded_file.name
     file_content = uploaded_file.getvalue()
@@ -141,44 +141,49 @@ def hr_dep_manager():
 
 # Tasks #
 ##############################################
-def cv_analysis_task(vacancy, resume):
-    return Task(
-        description=f"""
-            * Read this information about the vacancy: {vacancy} \n\n.
-            * Read this contents of a resume: {resume} \n\n.
-            * Do not improvise,  do not make conclusions if there is not enough information. 
-            * Just work with real facts and information.
-            * The goal is to analyze the given 'RESUME', and write a 'First analysis report'.
-            * Search in the resume and find the matching information for each "Vacancy Requirements" and "would be plus" item
-            * Rate from 0% to 100% the information found in the resume. 
-            * 0% = No information found, 
-            * 100% = The information in the resume is 100% guarantees that the requirement/woule be plus was met.  
-            * "Work Experience" must be detailed at least for one last place of employment. ie: Company name, start-end dates, references and etc.
-            * Do not rate "Work Experience" just by words and sentences. Seek for detailed information such as: company name, start-end dates, references and etc.
-            * Foreign language level must be referenced in resume to receive more  than 80%. ie: English Level: C+ ,Advanced, courses, diplomas and etc.
-            * Do not rate foreign language level by the resume contains. Seek for detailed information.
-            * Use the "expected output" for reference. 
-           """,
-        expected_output=f"""
-        Requirement: Name of requirement in vacancy details (% Your analysis in percentage) \n
-        \t Reason: Explain your grounds. Why you gave that rating; \n\n
-        
-        Would be plus: Name of Would be plus in vacancy details (% Your analysis in percentage) \n
-        \t Reason: Explain your grounds. Why you gave that rating; \n\n
-        """,
-        agent=cv_analyst()
-    )
+def cv_analysis_task(vac=None, res=None):
+    if vacancy and resume:
+        return Task(
+            description=f"""
+                * Read this information about the vacancy: {vacancy} \n\n.
+                * Read this contents of a resume: {resume} \n\n.
+                * Do not improvise,  do not make conclusions if there is not enough information. 
+                * Just work with real facts and information.
+                * The goal is to analyze the given 'RESUME', and write a 'First analysis report'.
+                * Search in the resume and find the matching information for each "Vacancy Requirements" and "would be plus" item
+                * Rate from 0% to 100% the information found in the resume. 
+                * 0% = No information found, 
+                * 100% = The information in the resume is 100% guarantees that the requirement/woule be plus was met.  
+                * "Work Experience" must be detailed at least for one last place of employment. ie: Company name, start-end dates, references and etc.
+                * Do not rate "Work Experience" just by words and sentences. Seek for detailed information such as: company name, start-end dates, references and etc.
+                * Foreign language level must be referenced in resume to receive more  than 80%. ie: English Level: C+ ,Advanced, courses, diplomas and etc.
+                * Do not rate foreign language level by the resume contains. Seek for detailed information.
+                * Use the "expected output" for reference. 
+               """,
+            expected_output=f"""
+            Requirement: Name of requirement in vacancy details (% Your analysis in percentage) \n
+            \t Reason: Explain your grounds. Why you gave that rating; \n\n
+            
+            Would be plus: Name of Would be plus in vacancy details (% Your analysis in percentage) \n
+            \t Reason: Explain your grounds. Why you gave that rating; \n\n
+            """,
+            agent=cv_analyst()
+        )
 
 
 # Set Defaults
 current_step = st.session_state.get('current_step', 1)
 responses = st.session_state.get('responses', {})
 selected_vacancy_value = responses.get("selected_vacancy", "")
-vacancy_names = GetVacanciesData().get_vacancy_names()
+vacancy_data = GetVacData()
+vacancy_headers = vacancy_data.sheet_headers()
+vacancy_names = vacancy_data.get_vacancy_names()
 index = None if not selected_vacancy_value or selected_vacancy_value not in vacancy_names else vacancy_names.index(
     selected_vacancy_value)
+# Set the temp path
+temp_path = get_temp_path()
 
-
+# Step 1: Get user and vacancy information
 if current_step == 1:
     # The form
     responses["name"] = st.text_input("Name", value=responses.get("name", ""), key=f"name")
@@ -194,26 +199,29 @@ if current_step == 1:
             st.session_state['responses'] = responses
             # Loader
             with st.spinner("The assistant is analyzing the details of your CV, please wait..."):
-                # Set the temp path
-                temp_path = get_temp_path()
                 # Read the resume file
                 if uploaded_file is not None:
                     cv_contents = check_uploaded_file(uploaded_file)  # operation that takes time
                     with open(os.path.join(temp_path, "resume.txt"), "w") as f:
                         f.write(cv_contents)
                 # Get the selected vacancy details
-                vacancy_info = GetVacanciesData().get_vacancy_info(selected_vacancy)
-                if vacancy_info:
-                    vacancy_details = f"Vacancy Name: {vacancy_info['name']} \n" \
-                                      f"Vacancy Requirements Affect: {vacancy_info['requirements_affect']}\n" \
-                                      f"Vacancy Requirements: \n {vacancy_info['requirements']}\n\n" \
-                                      f"Vacancy Would be Plus Affect: {vacancy_info['would_be_plus_affect']} \n" \
-                                      f"Vacancy Would be Plus: \n {vacancy_info['would_be_plus']} \n" \
-
+                if vacancy_headers:
+                    vacancy_details = vacancy_data.get_selected_vacancy_details(selected_vacancy)
                     with open(os.path.join(temp_path, "vacancy.txt"), "w") as f:
                         f.write(vacancy_details)
                 else:
                     vacancy_details = "Vacancy not found"
-
+            st.session_state['current_step'] = current_step + 1
+            st.rerun()
         else:
             st.warning("All fields are required. Please check the fields for errors.")
+
+# Step 2: Connect to gpt and execute tasks
+if current_step == 2:
+    with open(f"{temp_path}/resume.txt") as r:
+        resume = r.read()
+    with open(f"{temp_path}/vacancy.txt") as r:
+        vacancy = r.read()
+    fist_analysis = cv_analysis_task(res=resume, vac=vacancy).execute()
+
+
