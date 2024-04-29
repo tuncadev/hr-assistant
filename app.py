@@ -223,5 +223,6 @@ if current_step == 2:
     with open(f"{temp_path}/vacancy.txt") as r:
         vacancy = r.read()
     fist_analysis = cv_analysis_task(res=resume, vac=vacancy).execute()
-
+    msg = st.chat_message("assistant")
+    msg.write(fist_analysis)
 
