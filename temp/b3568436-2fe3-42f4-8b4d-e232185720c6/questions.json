@@ -1,0 +1,14 @@
+{
+  "questions": [
+    "Do you have any experience with Java, even if it is not mentioned in your resume?",
+    "Have you worked with the Spring framework in any of your previous roles?",
+    "Can you provide examples of your experience with Docker, Azure, or AWS?",
+    "Have you been involved in building systems on microservices architecture before?",
+    "Have you worked with MongoDB in any of your previous projects?",
+    "Are you familiar with Vaadin, even if it is not listed on your resume?",
+    "Can you provide more details about your knowledge of OCR and AI, or cryptography?",
+    "Have you had any experience with Elastic Stack or Python?",
+    "Do you have any knowledge of Tesseract and Dlib in using C++?",
+    "Are you open to starting the new role immediately, or do you have any notice period?"
+  ]
+}

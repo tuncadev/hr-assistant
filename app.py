@@ -1,11 +1,15 @@
+import json
 import os
 import uuid
 import streamlit as st
+import time
 from crewai import Agent, Task
 from langchain_openai import ChatOpenAI
 
 from tools.getvacancies import GetVacData
 from tools.read_file import ReadFileContents
+from tools.get_tasks import GetTaskData
+from tools.get_agents import GetAgentData
 
 # OpenAI Environment
 openai_api = os.getenv("OPENAI_API_KEY")
@@ -14,6 +18,7 @@ open_llm = ChatOpenAI(
     model_name="gpt-4-turbo",
     temperature=0.1
 )
+
 
 # App functions start #
 # Check if all fields are filled
@@ -50,42 +55,20 @@ def check_uploaded_file(uploaded_file):
     else:
         cv_content = "Unsupported file type"
     return cv_content
+
+
+def is_valid_json(file_path):
+    try:
+        with open(file_path) as file:
+            data = file.read().strip()
+            # Check if the data can be loaded as JSON and starts with '{' (object)
+            json.loads(data)
+            return data.startswith('{')
+    except (json.JSONDecodeError, FileNotFoundError):
+        return False
+
+
 # App functions end #
-
-
-# Agents #
-##############################################
-def cv_analyst():
-    return Agent(
-        role='Cv Analyst',
-        goal='Analyze the given Resume context and rewrite it in the required format.',
-        backstory="""
-        You are an experienced professional Senior Human Resources Manager. 
-        You have 20+ years of experience in job interviews and resume reviewing. 
-        You can look into a resume and tell where the gaps are between the vacancy requirements and the resume content.',
-        """,
-        allow_delegation=False,
-        verbose=True,
-        llm=open_llm
-    )
-
-
-##############################################
-hr_interviewer = Agent(
-    role='Human Resources Manager',
-    goal="""
-    Read the analysis report of a resume for a certain job vacancy. 
-    Create minimum 6 and maximum of 10 questions to ask to the candidate to gather more information (if needed).
-    """,
-    backstory="""
-    You are an experienced Senior Human Resources Manager. 
-    You have 25+ years of experience in job interviews and resume reviewing. 
-    You can read the report of a resume and create some questions to ask to the candidate for further clarification of vacancy satisfactory analysis.
-    """,
-    allow_delegation=False,
-    verbose=True,
-    llm=open_llm
-)
 
 
 ##############################################
@@ -139,38 +122,6 @@ def hr_dep_manager():
     )
 
 
-# Tasks #
-##############################################
-def cv_analysis_task(vac=None, res=None):
-    if vacancy and resume:
-        return Task(
-            description=f"""
-                * Read this information about the vacancy: {vacancy} \n\n.
-                * Read this contents of a resume: {resume} \n\n.
-                * Do not improvise,  do not make conclusions if there is not enough information. 
-                * Just work with real facts and information.
-                * The goal is to analyze the given 'RESUME', and write a 'First analysis report'.
-                * Search in the resume and find the matching information for each "Vacancy Requirements" and "would be plus" item
-                * Rate from 0% to 100% the information found in the resume. 
-                * 0% = No information found, 
-                * 100% = The information in the resume is 100% guarantees that the requirement/woule be plus was met.  
-                * "Work Experience" must be detailed at least for one last place of employment. ie: Company name, start-end dates, references and etc.
-                * Do not rate "Work Experience" just by words and sentences. Seek for detailed information such as: company name, start-end dates, references and etc.
-                * Foreign language level must be referenced in resume to receive more  than 80%. ie: English Level: C+ ,Advanced, courses, diplomas and etc.
-                * Do not rate foreign language level by the resume contains. Seek for detailed information.
-                * Use the "expected output" for reference. 
-               """,
-            expected_output=f"""
-            Requirement: Name of requirement in vacancy details (% Your analysis in percentage) \n
-            \t Reason: Explain your grounds. Why you gave that rating; \n\n
-            
-            Would be plus: Name of Would be plus in vacancy details (% Your analysis in percentage) \n
-            \t Reason: Explain your grounds. Why you gave that rating; \n\n
-            """,
-            agent=cv_analyst()
-        )
-
-
 # Set Defaults
 current_step = st.session_state.get('current_step', 1)
 responses = st.session_state.get('responses', {})
@@ -180,6 +131,8 @@ vacancy_headers = vacancy_data.sheet_headers()
 vacancy_names = vacancy_data.get_vacancy_names()
 index = None if not selected_vacancy_value or selected_vacancy_value not in vacancy_names else vacancy_names.index(
     selected_vacancy_value)
+agent_data = GetAgentData()
+task_data = GetTaskData()
 # Set the temp path
 temp_path = get_temp_path()
 
@@ -203,12 +156,17 @@ if current_step == 1:
                 if uploaded_file is not None:
                     cv_contents = check_uploaded_file(uploaded_file)  # operation that takes time
                     with open(os.path.join(temp_path, "resume.txt"), "w") as f:
+                        f.write("RESUME:\n")
+                        f.write("----------------------------\n\n")
                         f.write(cv_contents)
                 # Get the selected vacancy details
                 if vacancy_headers:
                     vacancy_details = vacancy_data.get_selected_vacancy_details(selected_vacancy)
                     with open(os.path.join(temp_path, "vacancy.txt"), "w") as f:
+                        f.write("VACANCY DETAILS:\n")
+                        f.write("----------------------------\n\n")
                         f.write(vacancy_details)
+                        f.flush()
                 else:
                     vacancy_details = "Vacancy not found"
             st.session_state['current_step'] = current_step + 1
@@ -216,13 +174,138 @@ if current_step == 1:
         else:
             st.warning("All fields are required. Please check the fields for errors.")
 
-# Step 2: Connect to gpt and execute tasks
+# Step 2: Connect to gpt and execute "Cv Analysis" Task
 if current_step == 2:
-    with open(f"{temp_path}/resume.txt") as r:
-        resume = r.read()
-    with open(f"{temp_path}/vacancy.txt") as r:
-        vacancy = r.read()
-    fist_analysis = cv_analysis_task(res=resume, vac=vacancy).execute()
     msg = st.chat_message("assistant")
-    msg.write(fist_analysis)
+    msg.write("I am working on your Resume. Please give me some time for analysis. This should not take long...")
+    with st.spinner("The assistant is running. Please stand by..."):
+        with open(f"{temp_path}/resume.txt") as r:
+            resume = r.read()
+        with open(f"{temp_path}/vacancy.txt") as r:
+            vacancy = r.read()
+        # Get the cv analyst agent
+        cv_analyst = agent_data.return_cv_analyst()
+        # Get cv  analysis task
+        cv_analyze = task_data.return_task('Cv Analyst', cv_analyst, vac=f"{vacancy}", res=f"{resume}")
+        # Execute the task
+        fist_analysis = cv_analyze.execute()
+        with open(os.path.join(temp_path, "first_analysis.txt"), "w") as f:
+            f.write("FIRST ANALYSIS:\n")
+            f.write("----------------------------\n\n")
+            f.write(fist_analysis)
+            f.flush()
+    st.session_state['current_step'] = current_step + 1
+    st.rerun()
+# Step 3: Connect to gpt and execute "Generate Questions" Task
+if current_step == 3:
+    msg = st.chat_message("assistant")
+    msg.write("Please give me some more time for analysis. We are almost there")
+    with open(f"{temp_path}/first_analysis.txt") as fr:
+        first_analysis = fr.read()
+        fr.flush()
+    with st.spinner("The analysis is still running. Please stand by..."):
+        hr_interviewer = agent_data.return_hr_interviewer()
+        hr_interview = task_data.return_task('Human Resources Manager', hr_interviewer, first_analysis=first_analysis)
+        questions = hr_interview.execute()
+        with open(os.path.join(temp_path, "questions.json"), "w") as fq:
+            fq.write("QUESTIONS:\n")
+            fq.write("----------------------------\n\n")
+            fq.write(questions)
+            fq.flush()
+    st.session_state['current_step'] = current_step + 1
+    st.rerun()
+# Step 4 - Display additional questions
+if current_step == 4:
+    questions_path = f"{temp_path}/questions.json"
+    if is_valid_json(questions_path):
+        with open(questions_path) as q:
+            questions = q.read()
+        result_analysis_json = json.loads(questions)
+        questions = result_analysis_json.get('questions', [])
+        message = st.chat_message("assistant", avatar="🤖")
+        message.write(
+            f"*{'name'}*, **please answer these questions to better analyze your suitability for the vacancy:**")
+        num_questions = len(questions)
+        answers = st.session_state.get('answers', [''] * num_questions)
+        question_step = st.session_state.get('question_step', 1)
+        if num_questions > 5:
+            if question_step == 1:
+                for i, question in enumerate(questions[:5]):
+                    answers[i] = st.text_input(f"{i + 1}. {question}", value=answers[i], key=f"q_{i}")
 
+                col1, col2 = st.columns([12, 3])
+                col1.button("Previous", disabled=True, key='previous', help='Go to previous page',
+                            on_click=lambda: st.session_state.update({'current_step': 1}))
+                if col2.button("Next Questions"):
+                    if all(answers[:5]):
+                        st.session_state['answers'] = answers
+                        st.session_state['question_step'] = question_step + 1
+                        st.rerun()
+                    else:
+                        st.warning("Please answer all questions before proceeding.")
+            elif question_step == 2:
+                for i, question in enumerate(questions[5:]):
+                    answers[i + 5] = st.text_input(f"{i + 6}. {question}", value=answers[i + 5], key=f"q_{i + 5}")
+                col1, col2 = st.columns([11, 2])
+                if col1.button("Previous"):
+                    st.session_state['answers'] = answers
+                    st.session_state['question_step'] = 1
+                    st.rerun()
+                elif col2.button("Continue"):
+                    if all(answers[5:]):
+                        st.session_state['answers'] = answers
+                        with open(os.path.join("temp/73040c0a-565e-491c-a9cb-0c01f75f3be9", "questions_answers.txt"),
+                                  "w") as f:
+                            f.write("QUESTIONS AND ANSWERS:\n")
+                            f.write("----------------------------\n\n")
+                            for q, a in zip(questions, answers):
+                                f.write(f"Question: {q}\nAnswer: {a}\n")
+                        st.session_state['current_step'] = current_step + 1
+                        st.rerun()
+                    else:
+                        st.warning("Please answer all questions before proceeding.")
+        else:
+            for i, question in enumerate(questions):
+                answers[i] = st.text_input(f"{i + 1}. {question}", value=answers[i], key=f"q_{i}")
+            col1, col2 = st.columns([12, 3])
+            col1.button("Previous", disabled=True, key='previous', help='Go to previous page',
+                        on_click=lambda: st.session_state.update({'question_step': 1}))
+            if col2.button("Continue"):
+                if all(answers):
+                    with open(os.path.join("temp/73040c0a-565e-491c-a9cb-0c01f75f3be9", "questions_answers.txt"),
+                              "w") as f:
+                        for q, a in zip(questions, answers):
+                            f.write(f"Q: {q}\nA: {a}\n\n")
+                    st.session_state['answers'] = answers
+                    st.session_state['current_step'] = current_step + 1
+                    st.rerun()
+                else:
+                    st.warning("Please answer all questions before proceeding.")
+
+    else:
+        # If there is an error with questions and/or if there are no questions, continue to final report
+        with open(os.path.join(f"{temp_path}", "questions_answers.txt"), "w") as f:
+            f.write(f"There were no additional questions to ask to the candidate or there was an error with questions file.")
+        st.session_state['current_step'] = current_step + 1
+        st.rerun()
+# Step 5 - Send all analysis for final  report
+if current_step == 5:
+    # All files that should be created
+    files_to_read = [
+        f"{temp_path}/vacancy.txt",
+        f"{temp_path}/resume.txt",
+        f"{temp_path}/first_analysis.txt",
+        f"{temp_path}/questions_answers.txt"
+    ]
+    for file_path in files_to_read:
+        data = ""
+        # Check if the files exist
+        if os.path.exists(file_path):
+            # Save in a var all file contents
+            with open(file_path, 'r') as fa:
+                data += fa.read()
+        else:
+            data += f"{file_path} was not found."
+    # Send to agent for analysis
+
+    # AOK CONTINUE HERE

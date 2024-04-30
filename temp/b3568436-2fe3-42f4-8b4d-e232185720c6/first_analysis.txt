@@ -1,0 +1,55 @@
+FIRST ANALYSIS:
+----------------------------
+
+Requirement: +5 years of experience with Java (0%)
+Reason: The resume does not mention any experience with Java. The candidate's experience is focused on React/React Native development, not Java.
+
+Requirement: Good experience with Spring framework (0%)
+Reason: There is no mention of experience with the Spring framework in the resume. The candidate's skills are more oriented towards React and JavaScript technologies.
+
+Requirement: Experience developing with Rest API (100%)
+Reason: The resume mentions experience in developing user interfaces including REST API integration in all three work experiences. This indicates that the candidate has experience with Rest API development.
+
+Requirement: Experience with Docker, Azure, AWS (0%)
+Reason: There is no mention of experience with Docker, Azure, or AWS in the resume. The candidate's experience is more focused on frontend development technologies.
+
+Requirement: Experience building systems on microservices architecture (0%)
+Reason: There is no mention of experience in building systems on microservices architecture in the resume. The candidate's experience is more related to frontend development.
+
+Requirement: Proficiency in working with MongoDB (0%)
+Reason: There is no mention of proficiency in working with MongoDB in the resume. The candidate's experience is more focused on React and React Native development.
+
+Requirement: Familiarity with Vaadin (0%)
+Reason: There is no mention of familiarity with Vaadin in the resume. The candidate's skills are more oriented towards React and JavaScript technologies.
+
+Requirement: Upper-intermediate level of English language (100%)
+Reason: The resume states that the candidate has an upper-intermediate level of English language proficiency.
+
+Would be plus: Knowledge of OCR and AI, cryptography (0%)
+Reason: There is no mention of knowledge of OCR and AI, or cryptography in the resume. The candidate's experience is more focused on frontend development technologies.
+
+Would be plus: Experience with Elastic Stack and Python (0%)
+Reason: There is no mention of experience with Elastic Stack or Python in the resume. The candidate's skills are more oriented towards React and JavaScript technologies.
+
+Would be plus: Knowledge of Tesseract and Dlib in using C++ (0%)
+Reason: There is no mention of knowledge of Tesseract and Dlib in using C++ in the resume. The candidate's experience is more focused on frontend development technologies.
+
+Would be plus: Bachelor’s/Master’s degree in Computer Science (or equivalent experience) (100%)
+Reason: The resume mentions that the candidate has a Bachelor of Computer Science degree from IT STEP UNIVERSITY.
+
+Expected Output:
+Requirement: 
++5 years of experience with Java (0%)
+Good experience with Spring framework (0%)
+Experience developing with Rest API (100%)
+Experience with Docker, Azure, AWS (0%)
+Experience building systems on microservices architecture (0%)
+Proficiency in working with MongoDB (0%)
+Familiarity with Vaadin (0%)
+Upper-intermediate level of English language (100%)
+
+Would be plus:
+Knowledge of OCR and AI, cryptography (0%)
+Experience with Elastic Stack and Python (0%)
+Knowledge of Tesseract and Dlib in using C++ (0%)
+Bachelor’s/Master’s degree in Computer Science (or equivalent experience) (100%)
