@@ -72,27 +72,6 @@ def is_valid_json(file_path):
 
 
 ##############################################
-hr_manager = Agent(
-    role='Senior Human Resources Manager',
-    goal="""
-           * Read vacancy details.
-           * Read the first analysis report of a resume.
-           * Read the resume details. 
-           * Read the additional questions and answers of the candidate from the interview.
-           * Write a final report about the candidate. How suitable he is for the position. 
-           * Pay attention to vacancy requirements and how well the candidate fills the requirements.
-           """,
-    backstory="""
-           You are an extremely professional, very experienced  Senior Human Resources Manager. 
-           You have 25+ years of experience in job interviews and resume reviewing. 
-           You can read the report of a resume and results of an interview and write a professional report about the candidate.
-           You do not improvise or imagine. You work with facts.
-           """,
-    allow_delegation=False,
-    verbose=True,
-    llm=open_llm
-)
-
 
 ##############################################
 def hr_dep_manager():
@@ -122,22 +101,26 @@ def hr_dep_manager():
     )
 
 
-# Set Defaults
+# Set Defaults - THESE SHOULD BE IN AN INIT FUNCTION - FUTURE TASK!
+assistant_avatar_path = "media/svg/hys-assistant-avatar.svg"
 current_step = st.session_state.get('current_step', 1)
 responses = st.session_state.get('responses', {})
 selected_vacancy_value = responses.get("selected_vacancy", "")
-vacancy_data = GetVacData()
-vacancy_headers = vacancy_data.sheet_headers()
-vacancy_names = vacancy_data.get_vacancy_names()
-index = None if not selected_vacancy_value or selected_vacancy_value not in vacancy_names else vacancy_names.index(
-    selected_vacancy_value)
-agent_data = GetAgentData()
-task_data = GetTaskData()
 # Set the temp path
-temp_path = get_temp_path()
 
 # Step 1: Get user and vacancy information
 if current_step == 1:
+    # Set Defaults
+    vacancy_data = GetVacData()
+    vacancy_headers = vacancy_data.sheet_headers()
+    vacancy_names = vacancy_data.get_vacancy_names()
+    index = None if not selected_vacancy_value or selected_vacancy_value not in vacancy_names else vacancy_names.index(
+        selected_vacancy_value)
+    temp_path = get_temp_path()
+    # Welcome
+    msg = st.chat_message("adventurer-neutral", avatar=f"{assistant_avatar_path}")
+    msg.html("<b>HYS-Assistant</b>: <i>Please fill in the form to  continue with your application.</i>")
+    msg.html("<span style='color:#DB005F; font-weight:600;'><i>* All fields are required</i></span>")
     # The form
     responses["name"] = st.text_input("Name", value=responses.get("name", ""), key=f"name")
     responses["selected_vacancy"] = st.selectbox('Select a vacancy', vacancy_names, index=index, key="selected_vacancy")
@@ -176,8 +159,17 @@ if current_step == 1:
 
 # Step 2: Connect to gpt and execute "Cv Analysis" Task
 if current_step == 2:
-    msg = st.chat_message("assistant")
-    msg.write("I am working on your Resume. Please give me some time for analysis. This should not take long...")
+    # Temp folder
+    temp_path = get_temp_path()
+    # Get Crew Data
+    agent_data = GetAgentData()
+    task_data = GetTaskData()
+    # Applicant  name
+    name = responses["name"]
+    # Assistant message
+    msg = st.chat_message("assistant",  avatar=f"{assistant_avatar_path}")
+    msg.html(f"<b>HYS-Assistant</b>: {name}, <i>I am working on your resume. Please give me some time for analysis. This should not take long...</i>")
+    # Loader
     with st.spinner("The assistant is running. Please stand by..."):
         with open(f"{temp_path}/resume.txt") as r:
             resume = r.read()
@@ -198,8 +190,15 @@ if current_step == 2:
     st.rerun()
 # Step 3: Connect to gpt and execute "Generate Questions" Task
 if current_step == 3:
-    msg = st.chat_message("assistant")
-    msg.write("Please give me some more time for analysis. We are almost there")
+    # Temp folder
+    temp_path = get_temp_path()
+    # Get Crew Data
+    agent_data = GetAgentData()
+    task_data = GetTaskData()
+    # Applicant name
+    name = responses["name"]
+    msg = st.chat_message("assistant", avatar=f"{assistant_avatar_path}")
+    msg.html("<b>HYS-Assistant</b>: <i>Please give me some more time for analysis. We are almost there</i>")
     with open(f"{temp_path}/first_analysis.txt") as fr:
         first_analysis = fr.read()
         fr.flush()
@@ -214,15 +213,19 @@ if current_step == 3:
     st.rerun()
 # Step 4 - Display additional questions
 if current_step == 4:
+    # Temp folder
+    temp_path = get_temp_path()
+    # Applicant name
+    name = responses["name"]
     questions_path = f"{temp_path}/questions.json"
     if is_valid_json(questions_path):
         with open(questions_path) as q:
             questions = q.read()
         result_analysis_json = json.loads(questions)
         questions = result_analysis_json.get('questions', [])
-        message = st.chat_message("assistant", avatar="🤖")
-        message.write(
-            f"*{'name'}*, **please answer these questions to better analyze your suitability for the vacancy:**")
+        message = st.chat_message("assistant", avatar=f"{assistant_avatar_path}")
+        message.html(
+            f"<b>HYS-Assistant</b>: *{name}*, **please answer these questions to better analyze your suitability for the vacancy:**")
         num_questions = len(questions)
         answers = st.session_state.get('answers', [''] * num_questions)
         question_step = st.session_state.get('question_step', 1)
@@ -288,7 +291,14 @@ if current_step == 4:
         st.rerun()
 # Step 5 - Send all analysis for final  report
 if current_step == 5:
-    # All files that should be created
+    # Temp folder
+    temp_path = get_temp_path()
+    # Get Crew Data
+    agent_data = GetAgentData()
+    task_data = GetTaskData()
+    # Applicant name
+    name = responses["name"]
+    # All files that should have been created
     files_to_read = [
         f"{temp_path}/vacancy.txt",
         f"{temp_path}/resume.txt",
