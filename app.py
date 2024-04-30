@@ -15,7 +15,7 @@ from tools.get_agents import GetAgentData
 openai_api = os.getenv("OPENAI_API_KEY")
 os.environ["OPENAI_API_KEY"] = str(openai_api)
 open_llm = ChatOpenAI(
-    model_name="gpt-4-turbo",
+    model_name="gpt-3.5-turbo",
     temperature=0.1
 )
 
@@ -208,8 +208,6 @@ if current_step == 3:
         hr_interview = task_data.return_task('Human Resources Manager', hr_interviewer, first_analysis=first_analysis)
         questions = hr_interview.execute()
         with open(os.path.join(temp_path, "questions.json"), "w") as fq:
-            fq.write("QUESTIONS:\n")
-            fq.write("----------------------------\n\n")
             fq.write(questions)
             fq.flush()
     st.session_state['current_step'] = current_step + 1

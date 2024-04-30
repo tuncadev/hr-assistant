@@ -1,0 +1,38 @@
+FIRST ANALYSIS:
+----------------------------
+
+Requirement: +5 years of experience with Java (0%)
+Reason: The resume does not mention any experience with Java, so the requirement is not met.
+
+Requirement: Good experience with Spring framework (0%)
+Reason: There is no mention of experience with the Spring framework in the resume.
+
+Requirement: Experience developing with Rest API (100%)
+Reason: The resume states that the candidate has experience in developing user interfaces including REST API integration, which aligns with the requirement.
+
+Requirement: Experience with Docker, Azure, AWS (0%)
+Reason: There is no mention of experience with Docker, Azure, or AWS in the resume.
+
+Requirement: Experience building systems on microservices architecture (0%)
+Reason: The resume does not mention any experience in building systems on microservices architecture.
+
+Requirement: Proficiency in working with MongoDB (0%)
+Reason: There is no mention of proficiency in working with MongoDB in the resume.
+
+Requirement: Familiarity with Vaadin (0%)
+Reason: The resume does not mention any familiarity with Vaadin.
+
+Requirement: Upper-intermediate level of English language (100%)
+Reason: The resume states that the candidate has an upper-intermediate level of English.
+
+Would be plus: Knowledge of OCR and AI (0%)
+Reason: There is no mention of knowledge of OCR and AI in the resume.
+
+Would be plus: Experience with Elastic Stack and Python (0%)
+Reason: The resume does not mention any experience with Elastic Stack or Python.
+
+Would be plus: Knowledge of Tesseract and Dlib in using C++ (0%)
+Reason: There is no mention of knowledge of Tesseract and Dlib in using C++ in the resume.
+
+Would be plus: Bachelor’s/Master’s degree in Computer Science (0%)
+Reason: The resume mentions a Bachelor of Computer Science, which aligns with the requirement for a Bachelor's/Master's degree in Computer Science.

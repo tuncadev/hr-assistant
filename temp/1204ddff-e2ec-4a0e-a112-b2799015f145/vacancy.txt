@@ -1,0 +1,20 @@
+VACANCY DETAILS:
+----------------------------
+
+"Vacancy Name" : Senior Java Developer
+"Vacancy Requirements" :
+	1) +5 years of experience with Java
+	2) Good experience with Spring framework
+	3) Experience developing with Rest API
+	4) Experience with Docker, Azure, AWS
+	5) Experience building systems on microservices architecture
+	6) Proficiency in working with MongoDB
+	7) Familiarity with Vaadin
+	8) Upper-intermediate level of English language
+"Vacancy Requirements affect" : 70%
+"Vacancy Would be Plus" :
+	1) Knowledge of OCR and AI (face recognition libraries, tuning, etc), cryptography
+	2) Experience with Elastic Stack and Python
+	3) Knowledge of Tesseract and Dlib in using C++
+	4) Bachelor’s/Master’s degree in Computer Science (or equivalent experience)
+"Vacancy Would be Plus Affect" : 30%
