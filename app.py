@@ -252,7 +252,7 @@ if current_step == 4:
                 elif col2.button("Continue"):
                     if all(answers[5:]):
                         st.session_state['answers'] = answers
-                        with open(os.path.join("temp/73040c0a-565e-491c-a9cb-0c01f75f3be9", "questions_answers.txt"),
+                        with open(os.path.join(f"{temp_path}", "questions_answers.txt"),
                                   "w") as f:
                             f.write("QUESTIONS AND ANSWERS:\n")
                             f.write("----------------------------\n\n")
@@ -270,7 +270,7 @@ if current_step == 4:
                         on_click=lambda: st.session_state.update({'question_step': 1}))
             if col2.button("Continue"):
                 if all(answers):
-                    with open(os.path.join("temp/73040c0a-565e-491c-a9cb-0c01f75f3be9", "questions_answers.txt"),
+                    with open(os.path.join(f"{temp_path}", "questions_answers.txt"),
                               "w") as f:
                         for q, a in zip(questions, answers):
                             f.write(f"Q: {q}\nA: {a}\n\n")
