@@ -86,7 +86,6 @@ def run():
 
             if submit:
                 temp_path = get_temp_path()
-                st.write(temp_path)
                 responses["uploaded_file"] = uploaded_file
                 if are_all_fields_filled(responses) and uploaded_file:
                     uploaded_file = responses["uploaded_file"]
@@ -293,6 +292,7 @@ def run():
             with open(os.path.join(f"{temp_path}", "chief_of_hr_report.txt"), "w") as fr:
                 fr.write(chief_of_hr_report)
                 fr.flush()
+            st.write(temp_path)
             st.write("All Done!")
             st.stop()
 
