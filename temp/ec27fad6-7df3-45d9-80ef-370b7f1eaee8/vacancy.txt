@@ -1,0 +1,18 @@
+VACANCY DETAILS:
+----------------------------
+
+"Vacancy Name" : Intern QA Engineer
+"Vacancy Requirements" :
+	1) Good knowledge of QA theory
+	2) Understanding of Scrum and CI/CD
+	3) Good knowledge of REST API
+	4) Good knowledge of issue tracking systems (Jira)
+	5) Knowledge of SQ
+	6) Upper-Intermediate English level (both written and spoken)
+	7) Located in Ukraine
+"Vacancy Requirements affect" : 70%
+"Vacancy Would be Plus" :
+	1) Basic knowledge of CLI
+	2) Basic knowledge of Azure
+	3) Understanding of microservice architecture
+"Vacancy Would be Plus Affect" : 30%

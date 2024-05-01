@@ -1,0 +1,27 @@
+1) Vacancy details are clear and specific which provides a good foundation for the recruitment process. The vacancy requires a good understanding of QA theory, Scrum and CI/CD, REST API, issue tracking systems (Jira), knowledge of SQL, and a high level of English proficiency. The candidate must also be located in Ukraine. The "would be plus" requirements are basic knowledge of CLI, Azure, and understanding of microservice architecture.
+
+2) The candidate, Artem Popov, has a background in sales and is currently taking courses for a QA Auto position. He has a high learning ability, good communication skills, and is located in Ukraine. However, his resume lacks specific technical skills required for the QA Engineer position. 
+
+3) The first analysis report by the Human Resources Manager was accurate based on the information provided in the resume.
+The manager correctly identified the lack of specific technical skills in the resume.
+However, the manager could have been more proactive in suggesting a further interview to clarify the candidate's skills, especially given his willingness to learn new things.
+
+4) The Recruitment Manager's questions during the interview were relevant and covered all the necessary areas.
+The candidate's answers filled the gaps in the resume, indicating knowledge in SQL, English proficiency, and basic knowledge in CLI, Azure, and microservice architecture.
+However, the candidate lacks experience in QA theory, Scrum and CI/CD, REST API, and Jira.
+
+5) The Human Resources Director's final report accurately summarized the candidate's suitability for the position.
+The report correctly identified the candidate's strengths and weaknesses and suggested that with further development and training, Artem has the potential to excel in the role.
+
+In conclusion, the Human Resources agents performed their tasks effectively, but there are areas for improvement.
+The Human Resources Manager could be more proactive in suggesting further interviews when the resume lacks specific skills.
+The Recruitment Manager should consider asking more detailed questions about the candidate's understanding of technical skills, especially when the resume lacks this information.
+The Human Resources Director's report was comprehensive and well written.
+
+Improvements to be made:
+
+1) The Human Resources Manager should suggest further interviews or tests when the resume lacks specific skills.
+2) The Recruitment Manager should ask more detailed questions about the candidate's understanding of technical skills, especially when the resume lacks this information.
+3) All agents should consider the candidate's willingness to learn new things and suggest appropriate training and support.
+
+Overall, the recruitment process was well executed, but there is always room for improvement to ensure we hire the best candidates for the position.

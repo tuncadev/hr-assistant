@@ -1,0 +1,16 @@
+1. First Analysis Report by Human Resources Manager:
+The initial analysis by the HR Manager was not thorough enough. The manager failed to identify the candidate's SQL knowledge, which was clearly mentioned in the resume. The manager also failed to correctly assess the candidate's knowledge of QA theory. The candidate did mention having theory and hands-on experience in manual testing, which indicates a good knowledge of QA theory. The manager also missed the fact that the candidate has a basic understanding of Azure, which was a plus point for the vacancy. 
+
+Improvement: The HR Manager should improve their resume analysis skills. They should thoroughly read the resume to identify all relevant skills and experiences. They should also consider the candidate's potential and willingness to learn when evaluating their suitability for the vacancy.
+
+2. Interview Questions and Answers by Recruitment Manager:
+The questions asked by the Recruitment Manager were generic and did not delve into the candidate's specific skills and experiences. The manager failed to ask questions that could have given more insights into the candidate's understanding of Scrum and CI/CD, REST API, and SQL. The manager also failed to ask questions about the candidate's experience with Azure, which was a plus point for the vacancy.
+
+Improvement: The Recruitment Manager should ask more specific questions to assess the candidate's understanding of the required skills and experiences. They should also ask questions about the candidate's past experiences and how they could apply their skills and knowledge to the vacancy.
+
+3. Final Report by Human Resources Director:
+The final report by the HR Director was accurate and fair. The director correctly identified the candidate's strengths and weaknesses. However, the director failed to mention the candidate's SQL and Azure knowledge, which were clearly mentioned in the resume. The director also failed to correctly assess the candidate's English level, which was clearly mentioned as intermediate in the resume.
+
+Improvement: The HR Director should thoroughly read the resume and the interview responses to accurately assess the candidate's skills and experiences. They should also consider the candidate's potential and willingness to learn when evaluating their suitability for the vacancy.
+
+Overall, the Human Resources team needs to improve their candidate evaluation process. They need to thoroughly read the resumes and ask more specific questions during the interviews. They also need to accurately assess the candidate's skills and experiences to make fair and accurate evaluations.

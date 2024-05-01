@@ -36,7 +36,7 @@ class GetTaskData:
         except Exception as e:
             return f"An error occurred: {e}"
 
-    def return_task(self, agent_name, agent_instance, vac=None, res=None, first_analysis=None, questions_answers=None):
+    def return_task(self, agent_name, agent_instance=None, vac=None, res=None, first_analysis=None, questions_answers=None, final_report=None):
         headers = self.get_sheet_headers()
         task_details = {}
         found_agent = False
@@ -52,7 +52,7 @@ class GetTaskData:
         if not found_agent:
             return "NO"
         return Task(
-            description=f"{task_details['description'][0].format(vacancy=vac, resume=res, first_analysis_report=first_analysis, questions_ansers=questions_answers)}",
+            description=f"{task_details['description'][0].format(vacancy=vac, resume=res, first_analysis_report=first_analysis, questions_answers=questions_answers, final_report=final_report)}",
             expected_output=f"{task_details['expected_output'][0]}",
             agent=agent_instance
         )

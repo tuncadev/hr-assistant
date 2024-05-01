@@ -1,0 +1,32 @@
+FIRST ANALYSIS:
+----------------------------
+
+Requirement: Good knowledge of QA theory (50%)
+Reason: The resume mentions the candidate is a Junior QA Engineer with theory and hands-on experience in manual testing, but there is no specific mention of a strong knowledge of QA theory.
+
+Requirement: Understanding of Scrum and CI/CD (0%)
+Reason: There is no mention of Scrum or CI/CD in the resume, indicating a lack of understanding in these areas.
+
+Requirement: Good knowledge of REST API (0%)
+Reason: There is no mention of REST API knowledge in the resume, indicating a gap in this requirement.
+
+Requirement: Good knowledge of issue tracking systems (Jira) (50%)
+Reason: The resume mentions experience with Jira, which aligns with the requirement for knowledge of issue tracking systems.
+
+Requirement: Knowledge of SQL (0%)
+Reason: There is no mention of SQL knowledge in the resume, indicating a gap in this requirement.
+
+Requirement: Upper-Intermediate English level (both written and spoken) (50%)
+Reason: The resume mentions an intermediate level of English, which does not fully meet the upper-intermediate level required.
+
+Requirement: Located in Ukraine (100%)
+Reason: The candidate is located in Ukraine, meeting this requirement fully.
+
+Would be plus: Basic knowledge of CLI (0%)
+Reason: There is no mention of CLI knowledge in the resume, indicating a gap in this would be a plus requirement.
+
+Would be plus: Basic knowledge of Azure (0%)
+Reason: There is no mention of Azure knowledge in the resume, indicating a gap in this would be a plus requirement.
+
+Would be plus: Understanding of microservice architecture (0%)
+Reason: There is no mention of microservice architecture understanding in the resume, indicating a gap in this would be a plus requirement.

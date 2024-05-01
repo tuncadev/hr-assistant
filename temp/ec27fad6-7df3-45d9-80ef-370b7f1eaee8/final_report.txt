@@ -1,0 +1,24 @@
+**Final Report**
+
+Candidate: Maryna Davydok
+
+Position: Intern QA Engineer
+
+Suitability for the Position: 35%
+
+Pros:
+- Located in Ukraine, meeting the location requirement fully.
+- Mentioned having knowledge of QA theory, Scrum, CI/CD, REST API, SQL, and basic knowledge of CLI, Azure, and microservice architecture.
+- Experience with issue tracking systems (Jira).
+- Eager to learn and contribute to a dynamic QA team.
+- Strong analytical and problem-solving skills.
+
+Cons:
+- Lack of specific mention of strong knowledge of QA theory in the resume.
+- No mention of Scrum or CI/CD understanding in the resume.
+- Intermediate level of English, falling short of the upper-intermediate level required.
+- Limited experience in the QA field as a Junior QA Engineer.
+- No pet-projects related to QA mentioned in the resume.
+- Limited technical skills mentioned in the resume compared to the vacancy requirements.
+
+Overall, Maryna Davydok shows potential for growth in the QA field and has some relevant skills and knowledge. However, there are gaps in meeting the specific requirements of the Intern QA Engineer position, especially in terms of technical knowledge and experience level. Further training and development may be needed to fully meet the vacancy requirements.

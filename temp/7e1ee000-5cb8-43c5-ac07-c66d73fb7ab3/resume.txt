@@ -1,0 +1,115 @@
+RESUME:
+----------------------------
+
+Lesia Okseniuk
+
+QA Engineer
+
+Contacts
+
+Summary
+
+Phone : +380969651113 (Telegram)
+
+I am a manual QA engineer with a deep understanding
+
+LinkedIn: Lesia Okseniuk
+
+lesia.okseniuk.qa@gmail.com
+
+Lutsk, Ukraine
+
+Languages
+
+English (Upper-Intermediate)
+
+Norwegian (Low-Intermediate)
+
+Skills
+
+Manual QA:
+
+Blackbox/Whitebox/Greybox
+
+testing
+
+Web/Mobile testing
+
+Basic SQL
+
+Basic JavaScript
+
+Web Understanding (Client-
+
+Server Architecture, HTML,
+
+CSS, JSON)
+
+Agile concepts knowledge
+
+Test documentation: Test Plan,
+
+test cases, bug reports,
+
+checklists, decomposition
+
+Test design techniques
+
+Working with Jira
+
+Working with TestRail
+
+Working with Postman
+
+HTML/CSS basics
+
+API testing
+
+Knowledge of SDLC and STLC
+
+of SDLC and STLC, testing types, test design
+
+techniques, and experience with writing test cases, bug
+
+reports, and other types of test documentation. I am a
+
+quick learner, always eager to work on something new.
+
+Experience
+Conduit project, Petstore project, Joyn project
+
+Requirements reviewing with the Product Owner
+
+(Story refinement)
+
+Developing Decomposition
+
+Designing and executing test cases in TestRail
+
+Reporting bugs in JIRA
+
+Developing test cases using test design techniques
+
+API testing in Postman
+
+Working in the Scrum team
+
+Writing SQL queries
+
+Education
+
+The Ivan Franko National University of Lviv
+
+Master in Journalism
+
+Mate Academy / QA Engineer
+
+QATestLab Training Center / The Fundamentals of
+
+Software Testing
+
+FreeCodeCamp / HTML, CSS. JavaScript
+
+W3Schools / SQL
+
+

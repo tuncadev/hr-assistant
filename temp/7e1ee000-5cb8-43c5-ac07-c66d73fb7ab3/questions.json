@@ -1,0 +1,10 @@
+{
+  "questions": [
+    "Do you have experience with CI/CD practices?",
+    "Do you have a good understanding of REST API?",
+    "Do you have strong knowledge of SQL?",
+    "Do you have any experience with CLI?",
+    "Do you have any knowledge of Azure?",
+    "Do you have an understanding of microservice architecture?"
+  ]
+}

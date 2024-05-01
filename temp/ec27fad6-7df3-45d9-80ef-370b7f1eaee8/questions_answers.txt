@@ -1,0 +1,23 @@
+QUESTIONS AND ANSWERS:
+----------------------------
+
+Question: Do you have a strong knowledge of QA theory?
+Answer: yes
+Question: Do you have an understanding of Scrum and CI/CD?
+Answer: yes
+Question: Do you have good knowledge of REST API?
+Answer: yes
+Question: Do you have knowledge of SQL?
+Answer: yes
+Question: Do you have an upper-intermediate level of English (both written and spoken)?
+Answer: yes
+Question: Do you have basic knowledge of CLI?
+Answer: yes
+Question: Do you have basic knowledge of Azure?
+Answer: yes
+Question: Do you have an understanding of microservice architecture?
+Answer: yes
+Question: How quickly are you ready to join the work?
+Answer: yes
+Question: Will there be an opportunity to work in case of power outages?
+Answer: yse

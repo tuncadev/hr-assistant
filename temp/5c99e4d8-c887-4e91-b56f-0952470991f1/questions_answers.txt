@@ -1,0 +1,23 @@
+QUESTIONS AND ANSWERS:
+----------------------------
+
+Question: Do you have any experience with QA theory?
+Answer: yes
+Question: Are you familiar with Scrum and CI/CD?
+Answer: no
+Question: Have you worked with REST API before?
+Answer: no
+Question: Do you have experience using issue tracking systems like Jira?
+Answer: no
+Question: Are you knowledgeable in SQL?
+Answer: yes
+Question: Do you have an upper-intermediate level of English proficiency?
+Answer: yes
+Question: Are you located in Ukraine?
+Answer: yes
+Question: Do you have any knowledge of CLI?
+Answer: yes
+Question: Have you worked with Azure before?
+Answer: yes
+Question: Do you have an understanding of microservice architecture?
+Answer: yes

@@ -1,0 +1,15 @@
+QUESTIONS AND ANSWERS:
+----------------------------
+
+Question: Do you have experience with CI/CD practices?
+Answer: Yes
+Question: Do you have a good understanding of REST API?
+Answer: yes
+Question: Do you have strong knowledge of SQL?
+Answer: yes
+Question: Do you have any experience with CLI?
+Answer: yes
+Question: Do you have any knowledge of Azure?
+Answer: yes
+Question: Do you have an understanding of microservice architecture?
+Answer: yes

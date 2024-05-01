@@ -1,0 +1,143 @@
+RESUME:
+----------------------------
+
+M A R Y N A   D A V Y D O K
+
+J U N I O R   Q A   E N G I N E E R
+
+CONTACTS
+
++380 96-632-99-91
+
+mdavydok@ukr.net
+
+LinkedIn
+
+Telegram
+
+Konotop, Ukraine
+
+TECH SKILLS
+
+TestRail
+
+Jira
+
+Postman
+
+Trello
+
+JSON
+
+SQL
+
+HTML
+
+SOFT SKILLS
+
+Autonomous
+
+Eager to learn
+
+Hardworking
+
+Organized
+
+Punctual
+
+LANGUAGES
+
+Ukraine - Native
+
+English - Intermediate
+
+PROFILE
+
+Detail-oriented Junior QA Engineer with a theory and hands-on experience in
+manual testing.  I bring strong analytical and problem-solving skills. Eager to
+contribute to a dynamic QA team, adapt to new technologies, and ensure the
+delivery of high-quality software solutions.
+
+PET-PROJECTS
+
+Eldorado
+
+Creating a checklist for testing a web application. 
+
+Conducting acceptance-level testing for a web application.
+
+Writing bug reports.
+
+Finance.ua and Slack
+
+Defining types of non-functional testing for a financial web application.
+
+Writing a checklist for smoke testing.
+
+Creating positive and negative test cases for regression testing.
+
+MoneyTracker
+
+Working with documentation, analyzing requirements for the developed product.
+
+Applying techniques of ad-hoc review and role-based review.
+
+WORK EXPERIENCE
+
+Sales Representative
+
+Olga-Torg
+
+02/2019-07/2023
+
+Identification and researching potential customers or clients.
+
+Communication with customers to understand their needs and preferences.
+
+Building and maintaince relationships with existing and potential clients. 
+
+Developing and implemention sales strategies to achieve sales targets. 
+
+Working closely with marketing and customer support teams. 
+
+EDUCATION
+
+  Achievements:
+
+IT School GoIT (Kyiv)
+2023 - 2024
+QA Engineer
+
+National University of Food
+Technologies
+2012-2016
+Faculty of commodity science,
+Bachelor
+
+Secured deals with key clients, leading to an expansion of the company's
+
+market presence. 
+
+Expanded the client base and increased the company's product presence.
+
+Sales Representative
+
+BytKhimTorg
+
+05/2017-01/2019
+
+Generating leads through various methods such as cold calling and networking.
+
+Conduction product presentations to showcase features and benefits. 
+
+Collaboration with colleagues to achieve overall company goals.
+
+  Achievements:
+
+Increased sales volume among the existing client base.
+
+Established long-term relationships with clients, resulting in increased customer
+
+loyalty.
+
+

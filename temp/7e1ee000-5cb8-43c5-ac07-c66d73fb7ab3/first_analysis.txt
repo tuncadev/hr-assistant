@@ -1,0 +1,32 @@
+FIRST ANALYSIS:
+----------------------------
+
+Requirement: Good knowledge of QA theory (80%)
+Reason: The resume mentions experience in manual QA, test design techniques, test documentation, and working with Jira and TestRail, which indicates a good understanding of QA theory.
+
+Requirement: Understanding of Scrum and CI/CD (70%)
+Reason: The resume states experience in working in a Scrum team, developing decomposition, and reporting bugs in JIRA, showing familiarity with Scrum practices. However, there is no specific mention of CI/CD.
+
+Requirement: Good knowledge of REST API (60%)
+Reason: The resume mentions experience in API testing in Postman, which indicates some knowledge of REST API. However, there is no specific mention of REST API knowledge.
+
+Requirement: Good knowledge of issue tracking systems (Jira) (80%)
+Reason: The resume states working with Jira for requirements reviewing, bug reporting, and test case development, demonstrating good knowledge of Jira.
+
+Requirement: Knowledge of SQL (40%)
+Reason: The resume only mentions basic SQL knowledge, which may not meet the requirement of good knowledge of SQL.
+
+Requirement: Upper-Intermediate English level (both written and spoken) (100%)
+Reason: The resume clearly states an Upper-Intermediate level of English proficiency.
+
+Requirement: Located in Ukraine (100%)
+Reason: The resume mentions being located in Lutsk, Ukraine.
+
+Would be plus: Basic knowledge of CLI (0%)
+Reason: There is no mention of CLI knowledge in the resume.
+
+Would be plus: Basic knowledge of Azure (0%)
+Reason: There is no mention of Azure knowledge in the resume.
+
+Would be plus: Understanding of microservice architecture (0%)
+Reason: There is no mention of microservice architecture understanding in the resume.

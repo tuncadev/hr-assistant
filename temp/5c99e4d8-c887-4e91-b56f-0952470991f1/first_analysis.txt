@@ -1,0 +1,32 @@
+FIRST ANALYSIS:
+----------------------------
+
+Requirement: Good knowledge of QA theory (0%)
+Reason: The resume does not mention any specific knowledge or experience related to QA theory.
+
+Requirement: Understanding of Scrum and CI/CD (0%)
+Reason: There is no indication in the resume about familiarity with Scrum or CI/CD.
+
+Requirement: Good knowledge of REST API (0%)
+Reason: The resume does not mention any experience or knowledge related to REST API.
+
+Requirement: Good knowledge of issue tracking systems (Jira) (0%)
+Reason: There is no mention of experience with issue tracking systems like Jira in the resume.
+
+Requirement: Knowledge of SQL (0%)
+Reason: The resume does not provide any information about SQL knowledge.
+
+Requirement: Upper-Intermediate English level (both written and spoken) (0%)
+Reason: While the resume mentions foreign language skills, it does not specify the English proficiency level.
+
+Requirement: Located in Ukraine (100%)
+Reason: The resume states that the candidate is located in Ukraine.
+
+Would be plus: Basic knowledge of CLI (0%)
+Reason: There is no mention of CLI knowledge in the resume.
+
+Would be plus: Basic knowledge of Azure (0%)
+Reason: The resume does not include any information about Azure knowledge.
+
+Would be plus: Understanding of microservice architecture (0%)
+Reason: There is no indication in the resume about understanding microservice architecture.

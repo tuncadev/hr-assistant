@@ -1,0 +1,19 @@
+----------------------------
+
+Candidate: Popov Artem
+
+Suitability for the position: 40%
+
+Pros:
+- Located in Ukraine as required by the vacancy
+- Knowledgeable in SQL
+- Upper-intermediate level of English proficiency
+- Knowledge of CLI, Azure, and microservice architecture
+- Willingness to learn new things and high learning ability
+
+Cons:
+- Lack of specific knowledge or experience related to QA theory
+- Not familiar with Scrum and CI/CD
+- No experience with REST API or issue tracking systems like Jira
+
+Overall, Popov Artem shows potential for the Intern QA Engineer position with strengths in certain technical areas and a willingness to learn. However, the lack of experience in key areas such as QA theory, Scrum, CI/CD, REST API, and Jira may require additional training and support. With further development and training, Popov Artem has the potential to excel in the role.

@@ -1,0 +1,18 @@
+Candidate Name: Lesia Okseniuk
+
+Position Applied for: Intern QA Engineer
+
+Suitability for the Position: 70%
+
+Pros:
+- Good knowledge of QA theory (80%): The candidate has experience in manual QA, test design techniques, test documentation, and working with Jira and TestRail, indicating a good understanding of QA theory.
+- Understanding of Scrum practices (70%): The candidate has experience working in a Scrum team, developing decomposition, and reporting bugs in JIRA, showing familiarity with Scrum practices.
+- Upper-Intermediate English level (100%): The candidate clearly states an Upper-Intermediate level of English proficiency.
+- Located in Ukraine (100%): The candidate is located in Lutsk, Ukraine.
+
+Cons:
+- Knowledge of REST API (60%): While the candidate has experience in API testing in Postman, there is no specific mention of REST API knowledge.
+- Knowledge of SQL (40%): The resume only mentions basic SQL knowledge, which may not meet the requirement of good knowledge of SQL.
+- Would be plus requirements (0%): The candidate does not have any mention of basic knowledge of CLI, Azure, or understanding of microservice architecture.
+
+Overall, the candidate shows a good understanding of QA theory, Scrum practices, and has an Upper-Intermediate level of English proficiency. However, there are some gaps in knowledge regarding REST API, SQL, and the additional "Would be plus" requirements. Therefore, the candidate is considered 70% suitable for the Intern QA Engineer position based on the vacancy requirements and the information provided.
