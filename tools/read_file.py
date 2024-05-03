@@ -2,6 +2,7 @@ import io
 from docx import Document
 from pdfminer.high_level import extract_text
 import chardet
+import fitz
 
 
 class ReadFileContents:
@@ -57,7 +58,20 @@ class ReadFileContents:
         return text
 
     def read_pdf_file(self):
-        return extract_text(io.BytesIO(self.file_content))
+        if not self.file_content:
+            return "Error: File content is empty."
+
+        text = ""
+        try:
+            pdf_document = fitz.open(stream=io.BytesIO(self.file_content))
+            for page_num in range(pdf_document.page_count):
+                page = pdf_document.load_page(page_num)
+                text += page.get_text()
+            pdf_document.close()
+        except Exception as e:
+            return f"Error: Failed to read PDF file. {e}"
+
+        return text
 
     def check_for_binary_data(self):
         if self.file_content:

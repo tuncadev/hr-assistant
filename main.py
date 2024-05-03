@@ -9,7 +9,7 @@ from tools.getvacancies import GetVacData
 from tools.read_file import ReadFileContents
 from tools.get_tasks import GetTaskData
 from tools.get_agents import GetAgentData
-
+from tools.db_connect import DBConnect
 
 # App functions start #
 # Check if all fields are filled

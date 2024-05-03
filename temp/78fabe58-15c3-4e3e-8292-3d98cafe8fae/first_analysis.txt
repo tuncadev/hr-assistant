@@ -1,0 +1,20 @@
+FIRST ANALYSIS:
+----------------------------
+
+Requirement: Good knowledge of QA theory (70%)
+Reason: The resume mentions basic knowledge of processes, standards, and testing methodologies, as well as basic knowledge in testing theory. While the resume does not explicitly state "good knowledge," the mentioned skills indicate a foundational understanding of QA theory.
+
+Would be plus: Basic knowledge of CLI (0%)
+Reason: There is no mention of any knowledge or experience with CLI in the resume.
+
+Would be plus: Basic knowledge of Azure (0%)
+Reason: There is no mention of any knowledge or experience with Azure in the resume.
+
+Would be plus: Understanding of microservice architecture (0%)
+Reason: There is no mention of any understanding or experience with microservice architecture in the resume.
+
+Requirement: Upper-Intermediate English level (both written and spoken) (0%)
+Reason: The resume does not provide any specific information about the candidate's English proficiency level. 
+
+Requirement: Located in Ukraine (100%)
+Reason: The candidate's contact information includes a Ukrainian phone number and an email address with a Ukrainian domain, indicating that they are located in Ukraine.

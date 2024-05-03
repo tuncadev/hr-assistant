@@ -1,0 +1,32 @@
+**Candidate Final Report**
+
+Candidate: Mykola Kish
+
+**Suitability for the Position: 70%**
+
+**Vacancy Requirements:**
+1) Good knowledge of QA theory: The candidate mentions basic knowledge of processes, standards, and testing methodologies, indicating a foundational understanding of QA theory. (70%)
+2) Understanding of Scrum and CI/CD: Not explicitly mentioned in the resume.
+3) Good knowledge of REST API: Mentioned skills in JSON, XML, and Postman suggest familiarity with REST API.
+4) Good knowledge of issue tracking systems (Jira): Mentioned experience with Jira.
+5) Knowledge of SQL: Not explicitly mentioned in the resume.
+6) Upper-Intermediate English level (both written and spoken): No specific information provided about English proficiency.
+7) Located in Ukraine: Contact information includes a Ukrainian phone number and email address, confirming location in Ukraine. (100%)
+
+**Vacancy Would be Plus:**
+1) Basic knowledge of CLI: Mentioned experience with CLI.
+2) Basic knowledge of Azure: Mentioned experience or knowledge with Azure.
+3) Understanding of microservice architecture: Mentioned experience or understanding of microservice architecture.
+
+**Pros:**
+- Good understanding of QA theory and practical experience in testing methodologies.
+- Experience with tools like Jira, JSON, XML, and Postman.
+- Located in Ukraine as required for the position.
+- Positive attitude towards learning and adapting to new technologies.
+
+**Cons:**
+- Lack of explicit mention of English proficiency level.
+- Limited information on SQL knowledge.
+- No detailed mention of Scrum and CI/CD understanding in the resume.
+
+Based on the provided information, Mykola Kish is suitable for the Intern QA Engineer position with a rating of 70%. He meets the majority of the vacancy requirements and would be a good fit for the role with some additional training and development in certain areas.

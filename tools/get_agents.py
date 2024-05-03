@@ -162,3 +162,34 @@ class GetAgentData:
                 temperature=0.5
             )
         )
+
+    def return_document_expert(self):
+        agent_name = "Document Expert"
+        headers = self.get_sheet_headers()
+        agent_details = {}
+        found_agent = False
+        for role in self.data["role"]:
+            if role == agent_name:
+                agent_details["role"] = role
+                for header in headers:
+                    details = self.get_custom_column(agent_name, header)
+                    # Check if details is a list with a single boolean element
+                    if isinstance(details, list) and len(details) == 1 and isinstance(details[0], bool):
+                        agent_details[header] = details[0]
+                    else:
+                        agent_details[header] = details
+                found_agent = True
+                break  # Exit the loop once the agent is found
+        if not found_agent:
+            return "NO"
+        return Agent(
+            role=agent_details['role'][0],
+            goal=agent_details['goal'][0],
+            backstory=agent_details['backstory'][0],
+            allow_delegation=agent_details['allow_delegation'],
+            verbose=agent_details['verbose'],
+            llm=ChatOpenAI(
+                model_name="gpt-3.5-turbo",
+                temperature=0.5
+            )
+        )
